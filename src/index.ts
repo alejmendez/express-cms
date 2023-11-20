@@ -1,13 +1,5 @@
-import express from 'express'
-import config from './env'
+import { createServer } from './bootstrap'
 
-const app = express()
-app.use(express.json())
-
-app.get('/', (_req, res) => {
-  res.send('hola mundo')
-})
-
-app.listen(config.app.port, () => {
-  console.log(`Server running on port ${config.app.port}`)
+createServer((config: any) => {
+  console.log(`Server running on ${config.app.url}`)
 })
